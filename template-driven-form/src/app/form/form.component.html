@@ -1,0 +1,85 @@
+<form
+  #templateDrivenForm="ngForm"
+  (ngSubmit)="onSubmit(templateDrivenForm)"
+  novalidate
+  class="form"
+>
+  <div class="form-control">
+    <label> Email: </label>
+    <input
+      type="email"
+      class="input"
+      name="email"
+      ngModel
+      required
+      minlength="10"
+      #email="ngModel"
+      placeholder="Type Email"
+    />
+
+    <div
+      *ngIf="email.touched || (email.errors && templateDrivenForm.submitted)"
+      class="error"
+    >
+      <label *ngIf="email.errors?.['required']">Email Required</label>
+    </div>
+  </div>
+  <div class="form-control">
+    <label> Password: </label>
+    <input
+      type="password"
+      class="input"
+      name="password"
+      ngModel
+      required
+      #password="ngModel"
+      placeholder="Type Password"
+    />
+    <div
+      *ngIf="
+        password.touched || (password.errors && templateDrivenForm.submitted)
+      "
+      class="error"
+    >
+      <label *ngIf="password.errors?.['required']">Password Required</label>
+    </div>
+  </div>
+  <div class="form-control">
+    <label> Select Role: </label>
+    <div class="role-control">
+      <div class="option">
+        <input
+          type="radio"
+          name="role"
+          ngModel
+          required
+          #role="ngModel"
+          id="Admin"
+          value="admin"
+        />
+        <label for="Admin">Admin</label>
+      </div>
+      <div class="option">
+        <input
+          type="radio"
+          name="role"
+          ngModel
+          value="student"
+          required
+          #role="ngModel"
+          id="Student"
+        />
+        <label for="Student">Student</label>
+      </div>
+    </div>
+    <div
+      *ngIf="role.touched || (role.errors && templateDrivenForm.submitted)"
+      class="error"
+    >
+      <label *ngIf="role.errors?.['required']">Select Your Role</label>
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="submit-btn">Submit</button>
+  </div>
+</form>
