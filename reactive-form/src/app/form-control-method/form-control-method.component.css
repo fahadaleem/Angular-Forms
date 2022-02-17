@@ -1,0 +1,44 @@
+.form-control-method {
+  padding: 20px;
+  width: 600px;
+  margin: 0 auto;
+}
+.form-control-method h1 {
+  text-align: center;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.form-control label {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.form-control input {
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #d5d5d5;
+  outline: none;
+  font-size: 18px;
+}
+
+.form-control input[type="button"] {
+  background-color: #0f0f0f !important;
+  color: #d5d5d5;
+  font-size: 18px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+#default-checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+#default-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+}

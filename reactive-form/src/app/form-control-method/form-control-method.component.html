@@ -1,0 +1,43 @@
+<div class="form-control-method">
+  <h1>Form Control Method</h1>
+  <div class="form-control">
+    <label>Username</label>
+    <input
+      type="text"
+      name="username"
+      placeholder="Type your name"
+      [formControl]="username"
+    />
+  </div>
+  <div class="form-control">
+    <label>Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Type your email"
+      [formControl]="email"
+    />
+  </div>
+  <div class="form-control">
+    <label>Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Type your password"
+      [formControl]="password"
+    />
+  </div>
+  <div class="form-control" id="default-checkbox">
+    <input type="checkbox" name="default" />
+    <label>Set Default Value</label>
+  </div>
+  <div class="form-control">
+    <input type="button" name="submit-btn" value="Submit" />
+  </div>
+
+  <div class="output-values">
+    <p>Username: {{ username.value }}</p>
+    <p>Email: {{ email.value }}</p>
+    <p>Password: {{ password.value }}</p>
+  </div>
+</div>

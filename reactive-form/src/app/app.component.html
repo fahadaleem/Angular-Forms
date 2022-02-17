@@ -1,0 +1,31 @@
+<div class="app">
+  <h1 class="app-heading">Template Driven Form</h1>
+  <p class="app-text">
+    Reactive forms provide a model-driven approach to handling form inputs whose
+    values change over time. Reactive forms use an explicit and immutable
+    approach to managing the state of a form at a given point in time. Each
+    change to the form state returns a new state, which maintains the integrity
+    of the model between changes. Reactive forms are built around observable
+    streams, where form inputs and values are provided as streams of input
+    values, which can be accessed synchronously. Reactive forms also provide a
+    straightforward path to testing because you are assured that your data is
+    consistent and predictable when requested. Any consumers of the streams have
+    access to manipulate that data safely.
+  </p>
+  <div class="tabs-btn">
+    <button class="btn" (click)="handleSelectTab('form-control')">
+      Form Control Method
+    </button>
+    <button class="btn" (click)="handleSelectTab('form-builder')">
+      Form Builder Method
+    </button>
+  </div>
+  <div class="forms">
+    <app-form-builder-method
+      *ngIf="selectedTab === 'form-builder'"
+    ></app-form-builder-method>
+    <app-form-control-method
+      *ngIf="selectedTab === 'form-control'"
+    ></app-form-control-method>
+  </div>
+</div>
