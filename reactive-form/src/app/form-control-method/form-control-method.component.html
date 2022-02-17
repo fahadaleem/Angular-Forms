@@ -1,4 +1,9 @@
-<div class="form-control-method">
+<form
+  class="form-control-method"
+  [formGroup]="myForm"
+  (ngSubmit)="onSubmit(myForm)"
+  novalidate
+>
   <h1>Form Control Method</h1>
   <div class="form-control">
     <label>Username</label>
@@ -6,7 +11,8 @@
       type="text"
       name="username"
       placeholder="Type your name"
-      [formControl]="username"
+      formControlName="username"
+      required
     />
   </div>
   <div class="form-control">
@@ -15,7 +21,7 @@
       type="email"
       name="email"
       placeholder="Type your email"
-      [formControl]="email"
+      formControlName="email"
     />
   </div>
   <div class="form-control">
@@ -24,20 +30,16 @@
       type="password"
       name="password"
       placeholder="Type your password"
-      [formControl]="password"
+      formControlName="password"
+      required
     />
+    <label for="error" *ngIf="!myForm.value.password">Error</label>
   </div>
   <div class="form-control" id="default-checkbox">
     <input type="checkbox" name="default" />
     <label>Set Default Value</label>
   </div>
   <div class="form-control">
-    <input type="button" name="submit-btn" value="Submit" />
+    <input type="submit" name="submit-btn" value="Submit" />
   </div>
-
-  <div class="output-values">
-    <p>Username: {{ username.value }}</p>
-    <p>Email: {{ email.value }}</p>
-    <p>Password: {{ password.value }}</p>
-  </div>
-</div>
+</form>
