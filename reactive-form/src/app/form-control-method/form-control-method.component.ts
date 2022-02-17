@@ -16,11 +16,11 @@ export class FormControlMethodComponent implements OnInit {
   ngOnInit(): void {}
   myForm = new FormGroup({
     username: new FormControl('Muhammad Fahad Aleem'),
-    email: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.minLength(8)]),
     password: new FormControl(''),
   });
 
   onSubmit(formData: FormGroup) {
-    console.log(formData.value);
+    console.log(formData.get('email')?.errors);
   }
 }

@@ -1,1 +1,76 @@
-<p>form-builder-method works!</p>
+<form
+  class="form-control-method"
+  [formGroup]="myForm"
+  (ngSubmit)="onSubmit(myForm)"
+  novalidate
+>
+  <h1>Form Builder Method</h1>
+  <div class="form-control">
+    <label>Username</label>
+    <input
+      type="text"
+      name="username"
+      placeholder="Type your name"
+      formControlName="username"
+      required
+    />
+    <label
+      *ngIf="
+        myForm.get('username')?.errors &&
+        (myForm.get('username')?.dirty || myForm.get('username')?.touched)
+      "
+      class="error"
+    >
+      Username Required
+    </label>
+  </div>
+  <div class="form-control">
+    <label>Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Type your email"
+      formControlName="email"
+    />
+    <label
+      *ngIf="
+        myForm.get('email')?.errors?.['required'] &&
+        (myForm.get('email')?.dirty || myForm.get('email')?.touched)
+      "
+      class="error"
+    >
+      Email Required
+    </label>
+    <label
+      *ngIf="
+        myForm.get('email')?.errors?.['pattern'] &&
+        (myForm.get('email')?.dirty || myForm.get('email')?.touched)
+      "
+      class="error"
+    >
+      Please enter a valid email
+    </label>
+  </div>
+  <div class="form-control">
+    <label>Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Type your password"
+      formControlName="password"
+      required
+    />
+  </div>
+  <div class="form-control" id="default-checkbox">
+    <input type="checkbox" name="default" />
+    <label>Set Default Value</label>
+  </div>
+  <div class="form-control">
+    <input
+      type="submit"
+      [disabled]="!myForm.valid"
+      name="submit-btn"
+      value="Submit"
+    />
+  </div>
+</form>
